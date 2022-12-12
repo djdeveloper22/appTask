@@ -1,0 +1,381 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: #051b30ce; }
+  .modal__formulario {
+    width: 30rem;
+    height: auto;
+    background-color: #A2D1FF;
+    border-radius: 0.5rem; }
+    .modal__formulario .formulario-container__moduloTask {
+      width: 100%;
+      height: auto;
+      padding: 1rem; }
+      .modal__formulario .formulario-container__moduloTask .styleInput {
+        font-size: 1.4rem;
+        border: none;
+        padding: 1.4rem;
+        width: 100%; }
+    .modal__formulario .formulario-container__descriptionTask {
+      width: 100%;
+      height: auto;
+      padding: 1rem; }
+      .modal__formulario .formulario-container__descriptionTask__space-task {
+        width: 100%;
+        height: 18rem;
+        font-size: 1.2rem;
+        padding: 1rem; }
+    .modal__formulario .formulario-container__btn {
+      width: 100%;
+      height: auto;
+      padding: 1rem; }
+      .modal__formulario .formulario-container__btn--btn {
+        background-color: #155493;
+        border-radius: 0.3rem;
+        color: #FFFF;
+        padding: 1rem;
+        text-align: center; }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+body {
+  font-family: Helvetica, sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0; }
+
+img {
+  width: 100%;
+  object-fit: cover; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  display: block; }
+
+.bi-check--green {
+  background-color: #e4f6d0;
+  color: #85B94A; }
+
+.bi-x--red {
+  background-color: #ffe8e9;
+  color: #C84453; }
+
+.bi-calendar--pourpes {
+  background-color: #fbedff;
+  color: #BC5DD4; }
+
+.bi-bookmark-check--green {
+  background-color: #E2FAF4;
+  color: #6FC1B1; }
+
+.bi-search--blackBlue {
+  background-color: #EAEEFD;
+  color: #5B6FAC; }
+
+.bi-arrow-down-square--orange {
+  background-color: #FFEFDC;
+  color: #D47A49; }
+
+.icons__list-logo {
+  gap: 0.2rem;
+  height: auto;
+  width: 1.4rem; }
+  .icons__list-logo .list-logo__colorBlue {
+    background-color: #155493;
+    width: inherit;
+    height: 0.4rem;
+    border-radius: 1rem;
+    transform: rotate(145deg);
+    margin-bottom: 0.2rem; }
+    .icons__list-logo .list-logo__colorBlue--logo {
+      width: 5rem;
+      height: 2rem; }
+  .icons__list-logo .list-logo__colorCielo {
+    background-color: #A2D1FF;
+    border-radius: 1rem;
+    height: 0.4rem;
+    width: inherit;
+    transform: rotate(145deg); }
+    .icons__list-logo .list-logo__colorCielo--logo {
+      width: 5rem;
+      height: 2rem;
+      margin-top: 0.7rem; }
+
+.flex, .modal, .icons__list-logo, .container-app, .app-icons, .app-icons__list, .app-icons__user, .app-projects, .app-projects__container-list, .app-projects .app-projects__iconAdd, .app-projects .app-projects__iconAdd .iconAdd__container, .app-design, .app-design__design, .app-design__design .design__content-design, .app-design__design .design__content-design .content-design__ul, .app-design__design .design__content-design .content-design__ul .design__ul__li, .app-design__design .content-design__time, .app-design .product-planning, .app-design .product-planning .product-planning__title, .app-design .app-design__design-projects, .app-design .app-design__design-projects .product-design__title, .app-design .app-design__icons, .app-design .app-design__icons .product-design__container-icons, .container-login, .container-login .login__route, .container-login .login__route__route-navigation, .container-login .login__route__route-navigation span, .container-login .login__route .route__menu__link, .container-login .login .login__sesion__container {
+  display: flex; }
+
+.flex-column, .icons__list-logo, .app-icons, .app-icons__list, .app-projects, .app-projects__container-list, .app-projects .app-projects__iconAdd, .app-design, .app-design__design .design__content-design, .app-design .product-planning, .app-design .app-design__design-projects, .container-login .login__route__route-navigation, .container-login .login__route__route-navigation span, .container-login .login .login__sesion__container {
+  flex-direction: column; }
+
+.space-between, .app-projects, .app-design__design, .app-design__design .design__content-design .content-design__ul, .app-design .product-planning .product-planning__title, .app-design .app-design__design-projects .product-design__title, .app-design .app-design__icons, .container-login .login__route {
+  justify-content: space-between; }
+
+.space-around, .app-icons__list, .app-projects__container-list, .app-design .product-planning, .app-design .app-design__design-projects {
+  justify-content: space-around; }
+
+.justify-content-center, .modal, .app-icons__user, .app-projects .app-projects__iconAdd .iconAdd__container, .container-login, .container-login .login__route .route__menu__link {
+  justify-content: center; }
+
+.align-items-center, .modal, .app-icons__list, .app-projects, .app-projects .app-projects__iconAdd .iconAdd__container, .app-design .product-planning .product-planning__title, .app-design .app-design__design-projects .product-design__title, .app-design .app-design__icons, .container-login, .container-login .login__route .route__menu__link {
+  align-items: center; }
+
+.align-items-flex-end, .app-icons__user {
+  align-items: flex-end; }
+
+.justify-content-end, .app-projects .app-projects__iconAdd, .app-design__design .content-design__time, .container-login .login__route__route-navigation span {
+  justify-content: flex-end; }
+
+.grid, .app-design__design .design__content-design .content-design__ul .design__ul__li .li__time, .app-design .app-design__icons .container-icons__anchor, .container-login .login, .container-login .login__route .route__menu, .container-login .login .login__sesion, .container-login .login .login__sesion__container__logo, .container-login .login .login__sesion__container .form .form__input-button, .container-login .login .login__sesion__container .form .form__input-button .form__input-button--styles {
+  display: grid; }
+
+.grid-center, .app-design__design .design__content-design .content-design__ul .design__ul__li .li__time, .app-design .app-design__icons .container-icons__anchor, .container-login .login__route .route__menu, .container-login .login .login__sesion, .container-login .login .login__sesion__container__logo, .container-login .login .login__sesion__container .form .form__input-button, .container-login .login .login__sesion__container .form .form__input-button .form__input-button--styles {
+  place-content: center; }
+
+.app-icons {
+  width: 5rem;
+  height: 100vh;
+  background-color: #198CFF;
+  color: #9ed1fa; }
+  .app-icons__list {
+    flex-grow: 1; }
+  .app-icons__user {
+    flex-grow: 1; }
+    .app-icons__user figure {
+      width: 5rem;
+      height: auto;
+      text-align: center; }
+
+.app-projects {
+  width: 250px;
+  height: auto;
+  border-right: 1px solid #edeaeada;
+  color: #000000; }
+  .app-projects__container-list {
+    width: 80%;
+    height: auto;
+    flex-grow: 1; }
+    .app-projects__container-list .list-projects li {
+      line-height: 2.5rem; }
+    .app-projects__container-list .list-projects__title {
+      color: #198CFF;
+      font-weight: 700; }
+    .app-projects__container-list .list-projects__title-personal {
+      color: #8fc950; }
+    .app-projects__container-list .list-projects__title-learning {
+      color: #D6737F; }
+  .app-projects .app-projects__iconAdd {
+    flex-grow: 2; }
+    .app-projects .app-projects__iconAdd .iconAdd__container {
+      width: 3.6rem;
+      height: 3.1rem;
+      color: #198CFF;
+      border-radius: 100%;
+      box-shadow: 0px 2px 5px 0px #00000024, 0px 1px 10px 0px #0000001f, 0px 2px 4px -1px #00000033;
+      margin-bottom: 1rem; }
+      .app-projects .app-projects__iconAdd .iconAdd__container .bi-add--styles {
+        font-size: 3.6rem; }
+
+.app-design {
+  width: 100%;
+  height: auto;
+  font-size: 1rem; }
+  .app-design__design {
+    align-items: center;
+    border-bottom: 1px solid #f3f0f09b;
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design__design .design__content-design {
+      flex-grow: 1;
+      gap: 1.4rem; }
+      .app-design__design .design__content-design .content-design__ul {
+        width: auto;
+        height: 2rem; }
+        .app-design__design .design__content-design .content-design__ul .design__ul__li {
+          width: auto;
+          height: inherit;
+          font-size: 16px;
+          gap: 0.3rem;
+          transition: all 5s ease-in; }
+          .app-design__design .design__content-design .content-design__ul .design__ul__li:hover {
+            border-bottom: 2px solid #198CFF;
+            cursor: pointer;
+            transition: all 5s ease-in; }
+          .app-design__design .design__content-design .content-design__ul .design__ul__li .li__time {
+            width: 1.4rem;
+            height: 4rem;
+            background-color: #EDF6FF;
+            border-radius: 0.6rem;
+            color: #198CFF; }
+    .app-design__design .content-design__time {
+      flex-grow: 3; }
+      .app-design__design .content-design__time .content-time__hours {
+        width: 2.6rem;
+        height: auto;
+        border-radius: 1rem;
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 1rem;
+        padding: 0.3rem;
+        text-align: center; }
+        .app-design__design .content-design__time .content-time__hours:nth-child(1) {
+          background-color: #198CFF;
+          color: #FFFF; }
+  .app-design .product-planning {
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .product-planning .product-planning__title {
+      border-bottom: 1px solid #e0dadab6;
+      padding-bottom: 1rem; }
+  .app-design .app-design__design-projects {
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .app-design__design-projects .product-design__title {
+      border-bottom: 1px solid #e0dadab6;
+      padding-bottom: 1rem; }
+  .app-design .app-design__check-task {
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem; }
+  .app-design .app-design__icons {
+    flex-grow: 1;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .app-design__icons .container-icons__anchor {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 0.5rem; }
+    .app-design .app-design__icons .product-design__container-icons {
+      gap: 2rem; }
+
+.checkbox {
+  margin: 15px; }
+
+label {
+  font-family: Helvetica;
+  letter-spacing: 1px; }
+
+@keyframes pop {
+  0% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  100% {
+    transform: scale(1.2); } }
+
+.checkbox-pop {
+  display: none; }
+
+.checkbox-pop + label span {
+  display: inline-block;
+  width: 25px;
+  height: 19px;
+  margin: 0 5px -4px 0; }
+  .checkbox-pop + label span:before, .checkbox-pop + label span:after {
+    transition: all .3s ease-in-out;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    border: 2px solid #198CFF;
+    border-radius: 0.3rem; }
+  .checkbox-pop + label span:after {
+    z-index: 0;
+    border: none; }
+
+.checkbox-pop:checked + label span:before {
+  animation: pop .3s ease;
+  z-index: 100;
+  background: #198CFF; }
+
+.container-login {
+  width: 100%;
+  height: 100vh;
+  background-color: #FFFF; }
+  .container-login .login {
+    background-color: #198CFF;
+    border-radius: 2rem;
+    box-shadow: 0px 10px 15px -3px #0000001a;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    width: 80%;
+    height: 90vh; }
+    .container-login .login__route {
+      color: #EDF6FF; }
+      .container-login .login__route__route-navigation {
+        gap: 1rem; }
+        .container-login .login__route__route-navigation h3 {
+          padding: 1rem; }
+        .container-login .login__route__route-navigation ul li {
+          line-height: 3rem;
+          margin-right: 0.4rem;
+          padding-left: 1rem; }
+          .container-login .login__route__route-navigation ul li:hover {
+            background-color: #FFFF;
+            color: #000000;
+            transition: all 0.1s ease-in; }
+          .container-login .login__route__route-navigation ul li .bi {
+            padding-right: 0.5rem; }
+        .container-login .login__route__route-navigation span {
+          flex-grow: 1;
+          padding: 1rem; }
+      .container-login .login__route .route__menu__link {
+        width: 5rem;
+        height: 3rem;
+        color: #FFFF;
+        margin-top: 1rem; }
+        .container-login .login__route .route__menu__link:hover {
+          background-color: #155493;
+          transition: all 0.5s ease; }
+    .container-login .login .login__sesion {
+      width: 50rem;
+      height: auto;
+      background-color: #155493;
+      display: grid;
+      grid-column-start: -1; }
+      .container-login .login .login__sesion__container {
+        width: 26rem;
+        height: 50vh;
+        background-color: #FFFF;
+        border-radius: 2rem; }
+        .container-login .login .login__sesion__container__logo {
+          flex-grow: 1; }
+        .container-login .login .login__sesion__container .form {
+          flex-grow: 1; }
+          .container-login .login .login__sesion__container .form__input, .container-login .login .login__sesion__container .form .form__input-password {
+            padding: 1rem; }
+            .container-login .login .login__sesion__container .form__input--styles, .container-login .login .login__sesion__container .form .form__input-password .form-input--styles {
+              width: 100%;
+              height: 3rem;
+              background-color: #A2D1FF;
+              border: none;
+              padding: 0.5rem; }
+          .container-login .login .login__sesion__container .form .form__input-button {
+            width: 100%;
+            height: auto;
+            margin-top: 1rem; }
+            .container-login .login .login__sesion__container .form .form__input-button .form__input-button--styles {
+              width: 10rem;
+              height: 3rem;
+              background-color: #155493;
+              color: white; }
+            .container-login .login .login__sesion__container .form .form__input-button .form__input-button--styles:hover {
+              background-color: #198CFF;
+              transition: all 0.2s ease-in; }

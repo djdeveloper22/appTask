@@ -1,0 +1,41 @@
+.checkbox {
+  margin: 15px; }
+
+label {
+  font-family: Helvetica;
+  letter-spacing: 1px; }
+
+@keyframes pop {
+  0% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  100% {
+    transform: scale(1.2); } }
+
+.checkbox-pop {
+  display: none; }
+
+.checkbox-pop + label span {
+  display: inline-block;
+  width: 25px;
+  height: 19px;
+  margin: 0 5px -4px 0; }
+  .checkbox-pop + label span:before, .checkbox-pop + label span:after {
+    transition: all .3s ease-in-out;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    border: 2px solid #198CFF;
+    border-radius: 0.3rem; }
+  .checkbox-pop + label span:after {
+    z-index: 0;
+    border: none; }
+
+.checkbox-pop:checked + label span:before {
+  animation: pop .3s ease;
+  z-index: 100;
+  background: #198CFF; }

@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $fontFamily;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.bi-check--green {
+  background-color: #e4f6d0;
+  color: #85B94A;
+}
+
+.bi-x--red {
+  background-color: #ffe8e9;
+  color: #C84453;
+}
+
+.bi-calendar--pourpes {
+  background-color: #fbedff;
+  color: #BC5DD4;
+}
+
+.bi-bookmark-check--green {
+  background-color: #E2FAF4;
+  color: #6FC1B1;
+}
+
+.bi-search--blackBlue {
+  background-color: #EAEEFD;
+  color: #5B6FAC;
+}
+
+.bi-arrow-down-square--orange {
+  background-color: $bi-arrow-bg-down-square;
+  color: $bi-arrow-font-down-square;
+}
+
+.icons__list-logo{
+  @extend .flex-column;
+  @extend .flex;
+  gap: 0.2rem;
+  height: auto;
+  width: 1.4rem;
+
+  .list-logo__colorBlue{
+    background-color: $bgColorLogoBlue;
+    width: inherit;
+    height: 0.4rem;
+    border-radius: 1rem;
+    transform: rotate(145deg);
+    margin-bottom: 0.2rem;
+
+    &--logo{
+      width: 5rem;
+      height: 2rem;
+    }
+  }
+  
+  .list-logo__colorCielo{
+    background-color: $bgColorLogoCielo;
+    border-radius: 1rem;
+    height: 0.4rem;
+    width: inherit;
+    transform: rotate(145deg);
+
+    &--logo{
+      width: 5rem;
+      height: 2rem;
+      margin-top: 0.7rem;
+    }
+  }
+}

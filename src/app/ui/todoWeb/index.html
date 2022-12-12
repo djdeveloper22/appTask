@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Todo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="container-app">
+      <div class="app-icons">
+        <div class="app-icons__list">
+          <div class="icons__list-logo">
+            <div class="list-logo__colorBlue"></div>
+            <div class="list-logo__colorCielo"></div>
+          </div>
+          <i class="bi bi-hdd"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-calendar"></i>
+          <i class="bi bi-check"></i>
+          <i class="bi bi-trash"></i>
+        </div>
+        <div class="app-icons__user">
+          <figure>
+            <img src="/src/assets/img/miPerfil.png" alt="foto perfil">
+            <i class="bi bi-three-dots"></i>
+          </figure>
+        </div>
+      </div>
+      <div class="app-projects">
+        <div class="app-projects__container-list">
+          <div class="app-container-list__projects">
+            <ul class="list-projects">
+              <li class="list-projects__title"> <input type="radio" name="projects" id=""> PROJECTS</li>
+              <li>EverDo</li>
+              <li>Gemsmark</li>
+              <li>Rubicon</li>
+            </ul>
+          </div>
+          <div class="app-container-list__personal">
+            <ul class="list-projects">
+              <li class="list-projects__title-personal"> <input type="radio" name="Personal" id="personal"> PERSONAL
+              </li>
+              <li>Shopping</li>
+              <li>Health</li>
+              <li>Etertaiment</li>
+            </ul>
+          </div>
+          <div class="app-container-list__learning">
+            <ul class="list-projects">
+              <li class="list-projects__title-learning"> <input type="radio" name="learning" id="learning"> LEARNING
+              </li>
+              <li>Electron</li>
+              <li>Flexbox</li>
+            </ul>
+          </div>
+        </div>
+        <div class="app-projects__iconAdd">
+          <div class="iconAdd__container">
+            <i class="bi bi-plus-circle-fill bi-add--styles"></i>
+          </div>
+        </div>
+      </div>
+      <div class="app-design">
+        <section class="app-design__design">
+          <div class="design__content-design">
+            <p>EverDo - MVP</p>
+            <h2>Design</h2>
+            <ul class="content-design__ul">
+              <li class="design__ul__li"> <span class="li__time">10</span> Todos </li>
+              <li class="design__ul__li"> <span class="li__time">3</span> Notes</li>
+              <li class="design__ul__li"> <span></span> Links</li>
+              <li class="design__ul__li"> <span></span> Files</li>
+            </ul>
+          </div>
+          <div class="content-design__time">
+            <div class="time__content content-time">
+              <span class="content-time__hours">All</span>
+              <span class="content-time__hours">1h</span>
+              <span class="content-time__hours">2h</span>
+              <span class="content-time__hours">Work</span>
+            </div>
+          </div>
+        </section>
+        <section class="product-planning">
+          <div class="product-planning__container">
+            <p class="checkbox">
+              <input class="checkbox-pop" type="checkbox" id="check1" />
+              <label for="check1"><span></span> Project Page </label>
+            </p>
+            <p class="checkbox">
+              <input class="checkbox-pop" type="checkbox" id="check2" />
+              <label for="check2"><span></span> Today Page</label>
+            </p>
+          </div>
+          <div class="product-planning__title">
+            <h2>Product Planning</h2>
+            <i class="bi bi-three-dots"></i>
+          </div>
+        </section>
+        <section class="app-design__design-projects">
+          <div class="product-design__container">
+            <p class="checkbox">
+              <input class="checkbox-pop" type="checkbox" id="check-design-projects-1" />
+              <label for="check-design-projects-1"><span></span> Decide how to organize Today page </label>
+            </p>
+            <p class="checkbox">
+              <input class="checkbox-pop" type="checkbox" id="check-design-projects-2" />
+              <label for="check-design-projects-2"><span></span> Create wireframe for the Today </label>
+            </p>
+            <p class="checkbox">
+              <input class="checkbox-pop" type="checkbox" id="check-design-projects-3" />
+              <label for="check-design-projects-3"><span></span> Decide whether to group items by type </label>
+            </p>
+          </div>
+          <div class="product-design__title">
+            <h2>Design</h2>
+            <i class="bi bi-three-dots"></i>
+          </div>
+        </section>
+        <section class="app-design__check-task">
+          <p class="checkbox">
+            <input class="checkbox-pop" type="checkbox" id="check-task-1" />
+            <label for="check-task-1"><span></span> Project page </label>
+          </p>
+          <p class="checkbox">
+            <input class="checkbox-pop" type="checkbox" id="check-task-2" />
+            <label for="check-task-2"><span></span> Today page </label>
+          </p>
+          <p class="checkbox">
+            <input class="checkbox-pop" type="checkbox" id="check-task-3" />
+            <label for="check-task-3"><span></span> End of day page </label>
+          </p>
+          <p class="checkbox">
+            <input class="checkbox-pop" type="checkbox" id="check-task-4" />
+            <label for="check-task-4"><span></span> Notifications & Confirmations </label>
+          </p>
+          <p class="checkbox"><input class="checkbox-pop" type="checkbox" id="check-task-5" />
+            <label for="check-task-5"><span></span> Modals </label>
+          </p>
+          <p> <i class="bi bi-plus"></i> Add items</p>
+        </section>
+        <section class="app-design__icons">
+          <div class="product-design__container-icons">
+            <div class="bi-check--green container-icons__anchor">
+              <i class="bi bi-check"></i>
+            </div>
+            <div class="bi-x--red container-icons__anchor">
+              <i class="bi bi-x"></i>
+            </div>
+            <div class="bi-calendar--pourpes container-icons__anchor">
+              <i class="bi bi-calendar"></i>
+            </div>
+            <div class="bi-bookmark-check--green container-icons__anchor">
+              <i class="bi bi-bookmark-check"></i>
+            </div>
+            <div class="bi-search--blackBlue container-icons__anchor">
+              <i class="bi bi-search"></i>
+            </div>
+            <div class="bi-arrow-down-square--orange container-icons__anchor">
+              <i class="bi bi-arrow-down-square"></i>
+            </div>
+          </div>
+          <div class="product-design__title bi-search--blackBlue container-icons__anchor">
+            <i class="bi bi-plus"></i>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

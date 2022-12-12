@@ -1,0 +1,58 @@
+.app-projects {
+  @extend .align-items-center;
+  @extend .flex-column;
+  @extend .flex;
+  @extend .space-between;
+  @include size(250px, auto);
+  border-right: 1px solid #edeaeada;
+  color: $fontColorList;
+
+  &__container-list {
+    @extend .flex-column;
+    @extend .flex;
+    @extend .space-around;
+    @include size(80%, auto);
+    flex-grow: 1;
+
+    .list-projects {
+      li {
+        line-height: 2.5rem;
+      }
+
+      &__title {
+        color: $bgColorIcons;
+        font-weight: 700;
+      }
+
+      &__title-personal {
+        color: $fontColorTitle;
+      }
+
+      &__title-learning {
+        color: $fontColorTitleLearning;
+      }
+    }
+  }
+
+  .app-projects__iconAdd {
+    @extend .flex-column;
+    @extend .flex;
+    @extend .justify-content-end;
+    flex-grow: 2;
+
+    .iconAdd__container {
+      @extend .align-items-center;
+      @extend .flex;
+      @extend .justify-content-center;
+      @include size(3.6rem, 3.1rem);
+      color: $bgColorIcons;
+      border-radius: 100%;
+      box-shadow: 0px 2px 5px 0px #00000024, 0px 1px 10px 0px #0000001f, 0px 2px 4px -1px #00000033;
+      margin-bottom: 1rem;
+
+      .bi-add--styles {
+        font-size: 3.6rem;
+      }
+    }
+  }
+}

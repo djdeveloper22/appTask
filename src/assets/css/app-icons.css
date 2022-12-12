@@ -1,0 +1,21 @@
+.app-icons {
+  background-color: bgColorIcons;
+  color: var(--fontColorIcons);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 5rem; }
+  .app-icons .app-icons__list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around; }
+  .app-icons .app-icons__user {
+    align-items: flex-end;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center; }
+    .app-icons .app-icons__user figure {
+      width: 3rem;
+      text-align: center; }

@@ -1,0 +1,66 @@
+//get -> https://codepen.io/alvarotrigo/pen/yLvLjBg
+$border-color: #198CFF;
+$checkbox-size: 1rem;
+$checkedbox-size: 1.2rem;
+$dark: #15171E;
+$white: mix($dark, white, 20%);
+
+.checkbox {
+  margin: 15px;
+}
+
+label {
+  font-family: Helvetica;
+  letter-spacing: 1px;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.checkbox-pop {
+  display: none;
+}
+
+.checkbox-pop+label span {
+  display: inline-block;
+  width: 25px;
+  height: 19px;
+  margin: 0 5px -4px 0;
+
+  &:before,
+  &:after {
+    transition: all .3s ease-in-out;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    background: transparent;
+    border: 2px solid $border-color;
+    border-radius: 0.3rem;
+  }
+
+  &:after {
+    z-index: 0;
+    border: none;
+  }
+}
+
+.checkbox-pop:checked+label span {
+  &:before {
+    animation: pop .3s ease;
+    z-index: 100;
+    background: $border-color;
+  }
+}

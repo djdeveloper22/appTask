@@ -1,0 +1,33 @@
+.app-projects {
+  align-items: center;
+  color: var(--fontColorList);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  border-right: 1px solid rgba(237, 234, 234, 0.856); }
+  .app-projects .container__app-container-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    width: 80%; }
+    .app-projects .container__app-container-list .list-projects li {
+      line-height: 2.5rem; }
+    .app-projects .container__app-container-list .list-projects .list-projects__title {
+      color: var(--bgColorIcons);
+      font-weight: 700; }
+    .app-projects .container__app-container-list .list-projects .list-projects__title-personal {
+      color: var(--fontColorTitle); }
+    .app-projects .container__app-container-list .list-projects .list-projects__title-learning {
+      color: var(--fontColorTitleLearning); }
+  .app-projects .app-projects__iconAdd {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: end; }
+    .app-projects .app-projects__iconAdd i {
+      color: var(--bgColorIcons);
+      font-size: 3.6rem;
+      margin-bottom: 1rem;
+      border-radius: 50%; }

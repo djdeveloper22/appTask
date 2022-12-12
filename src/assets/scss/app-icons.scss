@@ -1,0 +1,27 @@
+.app-icons {
+  @extend .flex-column;
+  @extend .flex;
+  @include size(5rem, 100vh);
+  background-color: $bgColorIcons;
+  color: $fontColorIcons;
+
+  &__list {
+    @extend .flex-column;
+    @extend .flex;
+    @extend .align-items-center;
+    @extend .space-around;
+    flex-grow: 1;
+  }
+
+  &__user {
+    @extend .align-items-flex-end;
+    @extend .flex;
+    @extend .justify-content-center;
+    flex-grow: 1;
+
+    figure {
+      @include size(5rem, auto);
+      text-align: center;
+    }
+  }
+}

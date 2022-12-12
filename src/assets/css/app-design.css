@@ -1,0 +1,94 @@
+.app-design {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1rem; }
+  .app-design .app-design__design {
+    align-items: center;
+    border-bottom: 1px solid rgba(243, 240, 240, 0.856);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .app-design__design .design__content-design {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 1.4rem; }
+      .app-design .app-design__design .design__content-design .content-design__ul {
+        display: flex;
+        height: 2rem;
+        justify-content: space-between; }
+        .app-design .app-design__design .design__content-design .content-design__ul .design__ul__li {
+          display: flex;
+          flex-direction: row;
+          font-size: 16px;
+          gap: 0.3rem;
+          height: inherit;
+          transition: all 5s ease-in; }
+          .app-design .app-design__design .design__content-design .content-design__ul .design__ul__li:hover {
+            border-bottom: 2px solid blue;
+            cursor: pointer;
+            transition: all 5s ease-in; }
+          .app-design .app-design__design .design__content-design .content-design__ul .design__ul__li .li__time {
+            background-color: var(--bgSColorIcons);
+            border-radius: 0.6rem;
+            color: bgColorIcons;
+            display: grid;
+            height: 1.4rem;
+            place-content: center;
+            width: 1.4rem; }
+    .app-design .app-design__design .content-design__time {
+      display: flex;
+      flex-grow: 3;
+      justify-content: flex-end; }
+      .app-design .app-design__design .content-design__time .content-time .content-time__hours {
+        border-radius: 1rem;
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 1rem;
+        padding: 0.3rem;
+        text-align: center;
+        width: 2.6rem; }
+        .app-design .app-design__design .content-design__time .content-time .content-time__hours:nth-child(1) {
+          background-color: var(--bgColorIcons);
+          color: var(--fontColorWhite); }
+  .app-design .product-planning {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .product-planning .product-planning__title {
+      align-items: center;
+      display: flex;
+      justify-content: space-between; }
+  .app-design .app-design__design-projects {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    padding: 2rem 2rem 0px 2rem; }
+    .app-design .app-design__design-projects .product-design__title {
+      align-items: center;
+      display: flex;
+      justify-content: space-between; }
+  .app-design .app-design__check-task {
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem; }
+  .app-design .app-design__icons {
+    flex-grow: 1;
+    padding: 2rem 2rem 0px 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem; }
+    .app-design .app-design__icons .container-icons__anchor {
+      width: 2.6rem;
+      height: 2.6rem;
+      display: grid;
+      place-content: center;
+      border-radius: 0.5rem; }
+    .app-design .app-design__icons .product-design__container-icons {
+      display: flex;
+      gap: 2rem; }

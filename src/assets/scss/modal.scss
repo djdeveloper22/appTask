@@ -1,0 +1,52 @@
+.modal {
+  @extend .align-items-center;
+  @extend .flex;
+  @extend .justify-content-center;
+  @include size(100%, 100vh);
+  background-color: $bgColorLogoBlueModal;
+
+  &__formulario {
+    @include size(30rem, auto);
+    background-color: $bgColorLogoCielo;
+    border-radius: 0.5rem;
+
+    .formulario-container {
+
+      &__moduloTask {
+        @include size(100%, auto);
+        padding: 1rem;
+
+        .styleInput {
+          @include fontSize(1.4rem);
+          border: none;
+          padding: 1.4rem;
+          width: 100%;
+        }
+      }
+
+      &__descriptionTask {
+        @include size(100%, auto);
+        padding: 1rem;
+      
+        &__space-task {
+          @include size(100%, 18rem);
+          @include fontSize(1.2rem);
+          padding: 1rem;
+        }
+      }
+
+      &__btn {
+        @include size(100%, auto);
+        padding: 1rem;
+
+        &--btn {
+          background-color: $bgColorLogoBlue;
+          border-radius: 0.3rem;
+          color: $fontColorWhite;
+          padding: 1rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
