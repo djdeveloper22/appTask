@@ -1,26 +1,26 @@
-import { ViewConsole } from './core/utils/ViewConsole';
-import { TaskManagerInMemory } from './core/services/TaskManagerInMemory';
-import { IConsolaAplications } from './domain/contract/IConsola';
-import { ConsoleAplication } from './ui/todoConsola';
-import { UtilsOptionMenu } from './ui/todoConsola/components/UtilsOpcionMenu';
+import { myWebApp } from './ui/todoWeb/index';
+import { IWebAplication } from "./domain/contract/IWebAplication";
+import { UtilsComponents } from './core/utils/UtilsComponent';
+import { Events } from './core/utils/Events';
 
 class Aplications {
-  
-  private appConsole: IConsolaAplications;
 
-  constructor(appConsole: IConsolaAplications) {
-    this.appConsole = appConsole;
+  private appTask: IWebAplication;
+
+  constructor(appTask: IWebAplication) {
+    this.appTask = appTask;
   }
 
-  startMyConsole():void{
-    this.appConsole.start();
+  initApp(rootContainer: string): void {
+    let obj = new UtilsComponents;
+    obj.setRootComponent(rootContainer);
+    this.appTask.startInitApp();
   }
 }
 
-const app = new Aplications(new ConsoleAplication( 
-  new UtilsOptionMenu(new TaskManagerInMemory, new ViewConsole), 
-  new ViewConsole
-));
+const app = new Aplications(
+  new myWebApp(new UtilsComponents, new Events)
+);
 
 export default app;
 

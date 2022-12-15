@@ -3,7 +3,11 @@
   @extend .flex;
   @extend .justify-content-center;
   @include size(100%, 100vh);
+  flex-direction: column;
   background-color: $bgColorLogoBlueModal;
+  position: fixed;
+  top: 0;
+  z-index: 5;
 
   &__formulario {
     @include size(30rem, auto);
@@ -27,7 +31,7 @@
       &__descriptionTask {
         @include size(100%, auto);
         padding: 1rem;
-      
+
         &__space-task {
           @include size(100%, 18rem);
           @include fontSize(1.2rem);
@@ -48,5 +52,6 @@
         }
       }
     }
+
   }
 }

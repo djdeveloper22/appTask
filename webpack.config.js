@@ -9,14 +9,26 @@ module.exports = {
   },
 
   output: {
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    filename: "build.js"
+    clean: true
+  },
+
+  devServer:{
+    static:{
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true
   },
 
   plugins: [new HtmlWebpackPlugin({
     title: 'APP TASK',
     filename: 'index.html',
-    template: './src/app/ui/todoWeb/index.html'
+    template: './index.html'
   })],
 
   resolve: {
@@ -30,7 +42,7 @@ module.exports = {
         loader: "ts-loader"
       },
       {
-        test: /\.scss$/,
+        test: /\.scss$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ]
