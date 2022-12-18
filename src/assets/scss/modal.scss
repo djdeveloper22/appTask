@@ -1,28 +1,45 @@
 .modal {
+  .msjTarea{
+    background-color: $fontColorWhite;
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    color: $bgColorLogoBlue;
+    left: 3rem;
+    padding: 1rem;
+    position: fixed;
+    text-align: center;
+    top: -7rem;
+    width: 15rem;
+  }
+
   @extend .align-items-center;
   @extend .flex;
   @extend .justify-content-center;
   @include size(100%, 100vh);
   flex-direction: column;
   background-color: $bgColorLogoBlueModal;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   position: fixed;
   top: 0;
   z-index: 5;
 
   &__formulario {
     @include size(30rem, auto);
-    background-color: $bgColorLogoCielo;
+    background-color: #FFF;
     border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    padding: 1rem;
 
     .formulario-container {
-
       &__moduloTask {
         @include size(100%, auto);
         padding: 1rem;
 
         .styleInput {
           @include fontSize(1.4rem);
-          border: none;
+          border: 0.1rem solid $bgColorIcons;
+          border-radius: 0.5rem;
           padding: 1.4rem;
           width: 100%;
         }
@@ -35,6 +52,8 @@
         &__space-task {
           @include size(100%, 18rem);
           @include fontSize(1.2rem);
+          border: 0.1rem solid $bgColorIcons;
+          border-radius: 0.5rem;
           padding: 1rem;
         }
       }
