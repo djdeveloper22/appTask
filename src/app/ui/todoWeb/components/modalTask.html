@@ -7,14 +7,34 @@
 <div class="modal__formulario formulario-container formulario-close">
   <div class="formulario-container__moduloTask">
     <input class="styleInput" type="text" name="moduloTarea"  id="moduloTarea" placeholder="Ingrese el nombre del modulo"
-      required>
+    required>
   </div>
   <div class="formulario-container__descriptionTask">
-    <textarea class="formulario-container__descriptionTask__space-task" name="Task" id="descriptionTask"
+    <textarea class="formulario-container__descriptionTask__space-task" name="moduloTarea" id="descriptionTask"
       placeholder="Ingrese la descripcion de su tarea" required ></textarea>
   </div>
+  <div class="formulario-container__moduloTask">
+    <input list="prioridad" class="styleInput" name="moduloTarea"  id="moduloTarea" placeholder="Prioridad tarea" required>
+    <datalist id="prioridad">
+      <option value="Alta">
+      <option value="Media">
+      <option value="Baja"> 
+    </datalist>
+  </div>
+  <div class="formulario-container__moduloTask">
+    <input type="date" id="myDate" value="" class="styleInput" name="moduloTarea"  id="fechaTask"placeholder="Escoja fecha a entregar la tarea" required>
+  </div>
+  <div class="formulario-container__moduloTask">
+    <input list="estado" name="estado" class="styleInput" name="moduloTarea"  id="estadoTarea" placeholder="hola" required>
+    <datalist id="estado">
+      <option value="terminada">
+      <option value="En proceso">
+      <option value="sin empezar"> 
+    </datalist>
+  </div>
+
   <div class="formulario-container__btn">
-    <a href="#" id="btnSave" class="formulario-container__btn--btn">Guardar Tarea</a>
+    <button id="btnSave" class="formulario-container__btn--btn">Guardar Tarea</button>
   </div>
 </div>
 <div class="msjTarea" id='msjTarea'>

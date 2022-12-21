@@ -4,16 +4,14 @@ import { Execepciones } from './Exepciones';
 
 export class TaskManagerAppWeb implements IConsoleRepositorie<TodoDto>{
 
-  public taskList: Array<TodoDto> = [];
+  private taskList: Array<TodoDto> = [];
 
   create(taskList: TodoDto): boolean {
-    console.log('entrando al create')
     this.taskList.push(taskList);
     return true;
   }
 
   read(): TodoDto[] {
-    console.log(this.taskList)
     return this.taskList;
   }
 

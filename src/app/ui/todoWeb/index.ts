@@ -1,3 +1,4 @@
+import { Validator } from './../../core/utils/Validator';
 
 import { ClearInput } from '../../core/utils/ClearInput';
 import { TaskManagerAppWeb } from './../../core/services/TaskManagerAppWeb';
@@ -16,13 +17,15 @@ export class myWebApp implements IWebAplication {
   }
 
   startInitApp(): void {
-    setTimeout(() => this.componenteWeb.setComponent('section_Icons', 'sectionIcon'), 100)
-    setTimeout(() => this.componenteWeb.setComponent('app_projects', 'sectionAppProjects'), 100)
-    setTimeout(() => this.componenteWeb.setComponent('app_design', 'sectionAppDesign'), 100)
+    setTimeout(() => {
+      this.componenteWeb.setComponent('section_Icons', 'sectionIcon'),
+      this.componenteWeb.setComponent('app_projects', 'sectionAppProjects'),
+      this.componenteWeb.setComponent('app_design', 'sectionAppDesign')
+    }, 100)
     setTimeout(() => this.showModal(), 500);
   }
 
-  showModal(): any {
+  showModal(): void {
     const root = document.querySelector('#root');
     const modal = document.createElement('div');
     modal.className = 'modal';
@@ -31,13 +34,16 @@ export class myWebApp implements IWebAplication {
     this.ev.click('#showModal', () => {
       root.appendChild(modal);
       setTimeout(() => this.componenteWeb.setComponent('myModal', 'modalTask'), 100);
-      setTimeout(() => { this.saveTask() }, 1000)
-      setTimeout(() => { this.close() }, 1000)
+      setTimeout(() => { 
+        this.saveTask();
+        this.close(); },
+      1000);
+      
       modal.style.marginLeft = '0%';
     });
   }
 
-  close() {
+  close(): void {
     const modal: HTMLElement = document.querySelector('#myModal');
     this.ev.click('#closeModal', () => {
       setTimeout(() => {
@@ -45,30 +51,61 @@ export class myWebApp implements IWebAplication {
         modal.style.transition = 'all 0.5s ease-in'
       }, 100)
       setTimeout(() => modal.remove(), 700)
-    })
+    });
   }
 
-  saveTask(): Events {
+  saveTask(): void {
     this.ev.click('#btnSave', () => {
-      const moduloTarea: any = document.querySelector('#moduloTarea');
-      const descriptionTask: any = document.querySelector('#descriptionTask');
+      const moduloTarea: HTMLFormElement = document.querySelector('#moduloTarea');
+      const descriptionTask: HTMLFormElement = document.querySelector('#descriptionTask');
       const contador = document.querySelector('#contadorTareas');
+      let acumulador: number = 0;
       const msjTask: HTMLElement = document.querySelector('#msjTarea');
       const clearInput = new ClearInput;
 
-      if (moduloTarea.value === '' || descriptionTask === '') {
+      if (moduloTarea.value === '' || descriptionTask.value === '') {
         alert('caja vacia, ingrese la informacion requerida');
       } else {
-        this.task.create({ nombre: moduloTarea.value, description: descriptionTask.value });
-        if (this.task.taskList.length > 0) {
-          contador.innerHTML = `${this.task.taskList.length}`
+        let taskIsSave = this.task.create({ nombre: moduloTarea.value, description: descriptionTask.value });
+        if (taskIsSave) {
+          contador.innerHTML = `${this.task.read().length}`
+          acumulador = acumulador + this.task.read().length;
           msjTask.style.top = '1rem';
           msjTask.style.transition = 'all 0.3s ease-in'
-          setTimeout(() => { msjTask.style.top = '-7rem'; }, 1500);
+          setTimeout(() => msjTask.style.top = '-7rem', 1500);
+          let objInput = new Validator();
+          objInput.validarInput();
+          
         }
+
         clearInput.clear(moduloTarea, descriptionTask);
       }
     });
-    return new Events
   }
+
+  //esto no va
+  // showTask(contador: number): void {
+  //   this.ev.click('#showTask', () => {
+  //     if (this.task.read().length <= 0) {
+  //       console.log('no tienes tareas agregadas');
+  //     } else {
+  //       const listaTareas: HTMLElement = document.querySelector('.listaTareas');
+  //       const contenedorTareas: HTMLElement = document.querySelector('.contenedorTareas');
+  //       listaTareas.style.display = 'flex';
+  //       contenedorTareas.innerHTML += `
+  //         <tr class="prioirty-200">
+  //           <td>${this.task.read()[contador].nombre}</td>
+  //           <td>${this.task.read()[contador].description}</td>
+  //           <td><i class="fa fa-circle"></i></td>
+  //           <td>alta</td>
+  //           <td>
+  //             <i class="bi bi-trash-fill"></i>
+  //             <i class="bi bi-pencil-fill"></i>
+  //           </td>
+  //         </tr>
+  //       `
+  //       console.table(this.task.read());
+  //     }
+  //   });
+  // }
 }

@@ -1,0 +1,115 @@
+.container {
+  background-color: $fontColorWhite;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  color: $bgColorLogoBlue;
+  height: 80vh;
+  padding: 50px 100px;
+  width: 992px;
+
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  position: relative;
+  width: 100%;
+}
+
+.filter input {
+  width: 40%;
+  padding: 10px 20px;
+  background-color: $bgSColorIcons;
+  outline: none;
+  border: 1px solid #111d32;
+  color: black;
+}
+
+input:focus {
+  border-color: #99a5bd;
+  outline: none;
+}
+
+.filter button {
+  width: 15%;
+  background-color: #1e2a41;
+  border: 1px solid #111d32;
+  color: #99a5bd;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filter button:hover {
+  background-color: #111d32;
+}
+
+table {
+  color: $bgSColorIcons;
+  width: 100%;
+}
+
+table th,
+table td {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 14px;
+}
+
+table tr {
+  background-color: $bgColorIcons;
+
+}
+
+table tr:hover {
+  background-color: #111d32;
+}
+
+table tr th:first-of-type,
+table tr td:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+table .prioirty-200 td:first-of-type {
+  border-left: 4px solid #f3ad70;
+}
+
+table .prioirty-300 td:first-of-type {
+  border-left: 4px solid #6fb39e;
+}
+
+table .prioirty-600 td:first-of-type {
+  border-left: 4px solid #497cc8;
+}
+
+table .prioirty-200 .fa-circle {
+  color: #f3ad70;
+  margin-right: 10px;
+  transform: scale(.5);
+}
+
+table .prioirty-300 .fa-circle {
+  color: #6fb39e;
+  margin-right: 10px;
+  transform: scale(.5);
+}
+
+table .prioirty-600 .fa-circle {
+  color: #497cc8;
+  margin-right: 10px;
+  transform: scale(.5);
+}
+
+table tr td button {
+  background-color: #162237;
+  color: #99a5bd;
+  outline: none;
+  border: none;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+table tr:hover .fa-trash {
+  visibility: visible;
+}

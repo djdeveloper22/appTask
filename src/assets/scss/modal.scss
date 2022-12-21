@@ -50,7 +50,7 @@
         padding: 1rem;
 
         &__space-task {
-          @include size(100%, 18rem);
+          @include size(100%, 8rem);
           @include fontSize(1.2rem);
           border: 0.1rem solid $bgColorIcons;
           border-radius: 0.5rem;

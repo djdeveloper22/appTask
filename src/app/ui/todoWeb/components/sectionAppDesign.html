@@ -1,9 +1,28 @@
 <section class="app-design__design">
+  <div class="listaTareas">
+    <div class="container">
+      <form action="#" class="filter">
+        <input type="search" name="filtter" id="filtter" placeholder="filtrar tarea"/>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Modulo</th>
+            <th>descripcion tarea</th>
+            <th>fecha</th>
+            <th>Prioridad</th>
+            <th>Opcion</th>
+          </tr>
+        </thead>
+        <tbody class="contenedorTareas"></tbody>
+      </table>
+    </div>
+  </div>
   <div class="design__content-design">
     <p>EverDo - MVP</p>
     <h2>Design</h2>
     <ul class="content-design__ul">
-      <li class="design__ul__li"> <span class="li__time" id="contadorTareas">0</span> Todos </li>
+      <li class="design__ul__li" id="showTask"> <span class="li__time" id="contadorTareas">0</span> Todos </li>
       <li class="design__ul__li"> <span class="li__time">3</span> Notes</li>
       <li class="design__ul__li"> <span></span> Links</li>
       <li class="design__ul__li"> <span></span> Files</li>
