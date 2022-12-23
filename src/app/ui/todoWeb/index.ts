@@ -80,8 +80,9 @@ export class myWebApp implements IWebAplication {
         acumulador = acumulador + this.task.read().length;
         msjTask.style.top = '1rem';
         msjTask.style.transition = 'all 0.3s ease-in'
-        setTimeout(() => {msjTask.style.top = '-7rem';}, 1500);
-        setTimeout(()=>this.showTask(acumulador), 1500)
+        setTimeout(() => {msjTask.style.top = '-7rem';
+        this.showTask(acumulador);}, 1500);
+        
       }
       
       console.table(this.task.read());
@@ -92,19 +93,15 @@ export class myWebApp implements IWebAplication {
 
   
   showTask(acumulador: number): void {
-   const myTask = document.querySelector('#myTask');
-   myTask.innerHTML += `
-   <input class="checkbox-pop" type="checkbox" id="check${acumulador}" />
-   <label for="check${acumulador}">
-    <span>
-      ${this.task.read()[acumulador].nombre} +
-      ${this.task.read()[acumulador].description} + 
-      ${this.task.read()[acumulador].prioridadTask} +
-      ${this.task.read()[acumulador].estadoTask} +
-    </span>  
-   </label>
+   const prueba = document.querySelector('.product-planning__container')
+   prueba.innerHTML += `
+    <p class="checkbox">
+      <input class="checkbox-pop" type="checkbox" id="check${acumulador}" />
+      <label for="check${acumulador}"><span>${this.task.read()[acumulador].nombre}</span></label>
+    </p> 
+   
    `
-   console.log(myTask);
+  
 
   }
   
