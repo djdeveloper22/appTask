@@ -81,7 +81,7 @@ export class myWebApp implements IWebAplication {
         msjTask.style.top = '1rem';
         msjTask.style.transition = 'all 0.3s ease-in'
         setTimeout(() => {msjTask.style.top = '-7rem';}, 1500);
-        this.showTask(acumulador);
+        setTimeout(()=>this.showTask(acumulador), 1500)
       }
       
       console.table(this.task.read());
@@ -97,10 +97,14 @@ export class myWebApp implements IWebAplication {
    <input class="checkbox-pop" type="checkbox" id="check${acumulador}" />
    <label for="check${acumulador}">
     <span>
-      ${moduloTarea} + ${descriptionTask} + ${inputOptionPrioridad.value} + ${moduloTarea.value} 
+      ${this.task.read()[acumulador].nombre} +
+      ${this.task.read()[acumulador].description} + 
+      ${this.task.read()[acumulador].prioridadTask} +
+      ${this.task.read()[acumulador].estadoTask} +
     </span>  
    </label>
    `
+   console.log(myTask);
 
   }
   
