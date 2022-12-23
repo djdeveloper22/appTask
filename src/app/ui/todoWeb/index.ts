@@ -1,10 +1,9 @@
-import { Validator } from './../../core/utils/Validator';
-
 import { ClearInput } from '../../core/utils/ClearInput';
 import { TaskManagerAppWeb } from './../../core/services/TaskManagerAppWeb';
 import { Events } from './../../core/utils/Events';
 import { UtilsComponents } from './../../core/utils/UtilsComponent';
 import { IWebAplication } from './../../domain/contract/IWebAplication';
+
 export class myWebApp implements IWebAplication {
   private componenteWeb: UtilsComponents;
   private ev: Events;
@@ -19,8 +18,8 @@ export class myWebApp implements IWebAplication {
   startInitApp(): void {
     setTimeout(() => {
       this.componenteWeb.setComponent('section_Icons', 'sectionIcon'),
-      this.componenteWeb.setComponent('app_projects', 'sectionAppProjects'),
-      this.componenteWeb.setComponent('app_design', 'sectionAppDesign')
+        this.componenteWeb.setComponent('app_projects', 'sectionAppProjects'),
+        this.componenteWeb.setComponent('app_design', 'sectionAppDesign')
     }, 100)
     setTimeout(() => this.showModal(), 500);
   }
@@ -34,11 +33,12 @@ export class myWebApp implements IWebAplication {
     this.ev.click('#showModal', () => {
       root.appendChild(modal);
       setTimeout(() => this.componenteWeb.setComponent('myModal', 'modalTask'), 100);
-      setTimeout(() => { 
+      setTimeout(() => {
         this.saveTask();
-        this.close(); },
-      1000);
-      
+        this.close();
+      },
+        1000);
+
       modal.style.marginLeft = '0%';
     });
   }
@@ -56,56 +56,52 @@ export class myWebApp implements IWebAplication {
 
   saveTask(): void {
     this.ev.click('#btnSave', () => {
+      let acumulador: number = 0;
+      const clearInput = new ClearInput();
+      const formulario: HTMLFormElement = document.querySelector('#formulario');
       const moduloTarea: HTMLFormElement = document.querySelector('#moduloTarea');
       const descriptionTask: HTMLFormElement = document.querySelector('#descriptionTask');
+      const inputOptionPrioridad: HTMLFormElement = document.querySelector('#inputOptionPrioridad');
+      //const inputFechaTask: HTMLFormElement = document.querySelector('#inputFechaTask');
+      const inputEstadoTask: HTMLFormElement = document.querySelector('#inputEstadoTask');
       const contador = document.querySelector('#contadorTareas');
-      let acumulador: number = 0;
       const msjTask: HTMLElement = document.querySelector('#msjTarea');
-      const clearInput = new ClearInput;
+      
+      let taskIsSave = this.task.create({
+        nombre: moduloTarea.value,
+        description: descriptionTask.value,
+        prioridadTask: inputOptionPrioridad.value,
+        estadoTask: inputEstadoTask.value,
+        //createDate: new Date(),
+      });
 
-      if (moduloTarea.value === '' || descriptionTask.value === '') {
-        alert('caja vacia, ingrese la informacion requerida');
-      } else {
-        let taskIsSave = this.task.create({ nombre: moduloTarea.value, description: descriptionTask.value });
-        if (taskIsSave) {
-          contador.innerHTML = `${this.task.read().length}`
-          acumulador = acumulador + this.task.read().length;
-          msjTask.style.top = '1rem';
-          msjTask.style.transition = 'all 0.3s ease-in'
-          setTimeout(() => msjTask.style.top = '-7rem', 1500);
-          let objInput = new Validator();
-          objInput.validarInput();
-          
-        }
-
-        clearInput.clear(moduloTarea, descriptionTask);
+      if (taskIsSave) {
+        contador.innerHTML = `${this.task.read().length}`
+        acumulador = acumulador + this.task.read().length;
+        msjTask.style.top = '1rem';
+        msjTask.style.transition = 'all 0.3s ease-in'
+        setTimeout(() => {msjTask.style.top = '-7rem';}, 1500);
+        this.showTask(acumulador);
       }
+      
+      console.table(this.task.read());
+
+      clearInput.clear(formulario);
     });
   }
 
-  //esto no va
-  // showTask(contador: number): void {
-  //   this.ev.click('#showTask', () => {
-  //     if (this.task.read().length <= 0) {
-  //       console.log('no tienes tareas agregadas');
-  //     } else {
-  //       const listaTareas: HTMLElement = document.querySelector('.listaTareas');
-  //       const contenedorTareas: HTMLElement = document.querySelector('.contenedorTareas');
-  //       listaTareas.style.display = 'flex';
-  //       contenedorTareas.innerHTML += `
-  //         <tr class="prioirty-200">
-  //           <td>${this.task.read()[contador].nombre}</td>
-  //           <td>${this.task.read()[contador].description}</td>
-  //           <td><i class="fa fa-circle"></i></td>
-  //           <td>alta</td>
-  //           <td>
-  //             <i class="bi bi-trash-fill"></i>
-  //             <i class="bi bi-pencil-fill"></i>
-  //           </td>
-  //         </tr>
-  //       `
-  //       console.table(this.task.read());
-  //     }
-  //   });
-  // }
+  
+  showTask(acumulador: number): void {
+   const myTask = document.querySelector('#myTask');
+   myTask.innerHTML += `
+   <input class="checkbox-pop" type="checkbox" id="check${acumulador}" />
+   <label for="check${acumulador}">
+    <span>
+      ${moduloTarea} + ${descriptionTask} + ${inputOptionPrioridad.value} + ${moduloTarea.value} 
+    </span>  
+   </label>
+   `
+
+  }
+  
 }

@@ -1,6 +1,6 @@
 import { TodoDto } from './../../../domain/dto/TodoDto';
 import { IConsoleRepositorie } from "../../../domain/repositories/IConsoleRepositorie";
-import { IOptionMenu } from '../../../domain/contract/IOptionMenu';
+//import { IOptionMenu } from '../../../domain/contract/IOptionMenu';
 import { ViewConsole } from '../../../core/utils/ViewConsole';
 import { MenuOption } from '../../../core/constants/menu.options.enum';
 import { ContentTitleMenu } from './ContentTitleMenu.enum';
@@ -8,7 +8,7 @@ import { OptionMenu } from './OptionMenu.enum';
 import { enterContinue } from './EnterContinue';
 import scanf from "scanf";
 
-export class UtilsOptionMenu implements IOptionMenu {
+export class UtilsOptionMenu {
 
   private taskManager: IConsoleRepositorie<TodoDto>;
   private view: ViewConsole;
@@ -35,7 +35,7 @@ export class UtilsOptionMenu implements IOptionMenu {
 
       this.view.clearConsole();
 
-      this.taskManager.create({ nombre: modulo, description: task });
+      //this.taskManager.create({ nombre: modulo, description: task });
 
       this.view.showMessage(OptionMenu.enterContinue);
       enterContinue.enter();
@@ -70,7 +70,7 @@ export class UtilsOptionMenu implements IOptionMenu {
 
       this.view.clearConsole();
 
-      this.taskManager.update(posicion, { nombre: moduloUpdate, description: taskUpdate });
+      //this.taskManager.update(posicion, { nombre: moduloUpdate, description: taskUpdate });
     }
   }
 

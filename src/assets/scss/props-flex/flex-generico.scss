@@ -10,6 +10,10 @@
   justify-content: space-between;
 }
 
+.gap{
+  gap: 1rem;
+}
+
 .space-around {
   justify-content: space-around;
 }
@@ -36,4 +40,8 @@
 
 .grid-center {
   place-content: center;
+}
+
+.flex-grow{
+  flex: 1;
 }

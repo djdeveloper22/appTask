@@ -1,6 +1,5 @@
 export class ClearInput{
-  clear(input: any, inputText: any): any{
-    input.value = '';
-    inputText.value = ''
+  clear(formulario: HTMLFormElement){
+    formulario.reset();
   }
 }
