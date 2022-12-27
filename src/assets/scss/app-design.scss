@@ -1,4 +1,4 @@
-.listaTareas{
+.listaTareas {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   -webkit-backdrop-filter: blur(5px);
   z-index: 5;
 
-  .contenedorListTask{
+  .contenedorListTask {
     background-color: aliceblue;
     width: 80%;
     height: 20vh;
@@ -99,6 +99,15 @@
     @extend .space-around;
     flex-grow: 1;
     padding: 2rem 2rem 0px 2rem;
+
+    .container__listTask {
+      height: 6rem;
+      overflow: auto;
+
+      .elementos__listTask {
+        margin-top: 0.3rem;
+      }
+    }
 
     .product-planning__title {
       @extend .align-items-center;

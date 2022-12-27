@@ -1,4 +1,5 @@
-import { ClearInput } from '../../core/utils/ClearInput';
+import { valueProject } from './../../core/constants/valueProject.enum';
+import { FunctionElementWeb } from '../../core/utils/FunctionElementWeb';
 import { TaskManagerAppWeb } from './../../core/services/TaskManagerAppWeb';
 import { Events } from './../../core/utils/Events';
 import { UtilsComponents } from './../../core/utils/UtilsComponent';
@@ -57,22 +58,23 @@ export class myWebApp implements IWebAplication {
   saveTask(): void {
     this.ev.click('#btnSave', () => {
       let acumulador: number = 0;
-      const clearInput = new ClearInput();
+      const cleanInput = new FunctionElementWeb();
       const formulario: HTMLFormElement = document.querySelector('#formulario');
       const moduloTarea: HTMLFormElement = document.querySelector('#moduloTarea');
-      const descriptionTask: HTMLFormElement = document.querySelector('#descriptionTask');
+      const typeProject: HTMLFormElement = document.querySelector('#inputProject');
       const inputOptionPrioridad: HTMLFormElement = document.querySelector('#inputOptionPrioridad');
-      //const inputFechaTask: HTMLFormElement = document.querySelector('#inputFechaTask');
       const inputEstadoTask: HTMLFormElement = document.querySelector('#inputEstadoTask');
       const contador = document.querySelector('#contadorTareas');
       const msjTask: HTMLElement = document.querySelector('#msjTarea');
-      
+      const title: HTMLElement = document.querySelector('.title');
+      title.style.display = 'none';
+
       let taskIsSave = this.task.create({
-        nombre: moduloTarea.value,
-        description: descriptionTask.value,
-        prioridadTask: inputOptionPrioridad.value,
-        estadoTask: inputEstadoTask.value,
-        //createDate: new Date(),
+        nameTask: moduloTarea.value,
+        typeProjetc: typeProject.value,
+        priorityTask: inputOptionPrioridad.value,
+        stateTask: inputEstadoTask.value,
+        createDate: new Date(),
       });
 
       if (taskIsSave) {
@@ -80,29 +82,26 @@ export class myWebApp implements IWebAplication {
         acumulador = acumulador + this.task.read().length;
         msjTask.style.top = '1rem';
         msjTask.style.transition = 'all 0.3s ease-in'
-        setTimeout(() => {msjTask.style.top = '-7rem';
-        this.showTask(acumulador);}, 1500);
-        
+        setTimeout(() => {
+          msjTask.style.top = '-7rem';
+          this.showTask(acumulador);
+        }, 1500);
       }
-      
-      console.table(this.task.read());
 
-      clearInput.clear(formulario);
+       cleanInput.cleanForm(formulario);
     });
   }
 
-  
-  showTask(acumulador: number): void {
-   const prueba = document.querySelector('.product-planning__container')
-   prueba.innerHTML += `
-    <p class="checkbox">
-      <input class="checkbox-pop" type="checkbox" id="check${acumulador}" />
-      <label for="check${acumulador}"><span>${this.task.read()[acumulador].nombre}</span></label>
-    </p> 
-   
-   `
-  
-
+  showTask(contador: number): void {
+    const elementWeb = new FunctionElementWeb();
+    const inputProject: HTMLFormElement = document.querySelector('#inputProject');
+    let elementos = this.task.read();
+    if (elementos.length) {
+      // elementos.forEach((el, pos)=>{
+      //   console.log(el.nameTask + ' ' + inputProject.options[pos].value);
+        
+      // })
+      elementWeb.insertElementWeb(contador, elementos);
+    }
   }
-  
 }

@@ -1,30 +1,32 @@
 <div class="modal__formulario formulario-container formulario-close">
   <form id="formulario" name="formulario">
     <div class="formulario-container__moduloTask">
-      <input class="styleInput" type="text" name="moduloTarea"  id="moduloTarea" placeholder="Ingrese el nombre del modulo"
+      <input class="styleInput" type="text" name="moduloTarea"  id="moduloTarea" placeholder="Enter the task to be performed"
       required>
     </div>
-    <div class="formulario-container__descriptionTask">
-      <textarea class="formulario-container__descriptionTask__space-task" name="moduloTarea" id="descriptionTask"
-        placeholder="Ingrese la descripcion de su tarea" required ></textarea>
+    <div class="formulario-container__moduloTask">
+      <input list="typeProject" class="styleInput" name="moduloTarea"  id="inputProject" placeholder="Type Projects" required>
+      <datalist id="typeProject">
+        <option value="Project Programming">
+        <option value="Project Design">
+      </datalist>
     </div>
     <div class="formulario-container__moduloTask">
-      <input list="prioridad" class="styleInput" name="moduloTarea"  id="inputOptionPrioridad" placeholder="Prioridad tarea" required>
-      <datalist id="prioridad">
-        <option value="Alta">
-        <option value="Media">
-        <option value="Baja"> 
+      <input list="priority" class="styleInput" name="moduloTarea"  id="inputOptionPrioridad" placeholder="Priority task" required>
+      <datalist id="priority">
+        <option value="high">
+        <option value="half">
+        <option value="low"> 
       </datalist>
     </div>
     <div class="formulario-container__moduloTask">
       <input type="date" id="myDate" value="" class="styleInput" name="moduloTarea"  id="inputFechaTask"placeholder="Escoja fecha a entregar la tarea" required>
     </div>
     <div class="formulario-container__moduloTask">
-      <input list="estado" name="estado" class="styleInput" name=""  id="inputEstadoTask" placeholder="Estado tarea" required>
+      <input list="estado" name="estado" class="styleInput" name=""  id="inputEstadoTask" placeholder="without starting" required>
       <datalist id="estado">
-        <option value="terminada">
-        <option value="En proceso">
-        <option value="sin empezar"> 
+        <option value="finished">
+        <option value="In process">
       </datalist>
     </div>
   </form>
