@@ -99,15 +99,7 @@
     @extend .space-around;
     flex-grow: 1;
     padding: 2rem 2rem 0px 2rem;
-
-    .container__listTask {
-      height: 6rem;
-      overflow: auto;
-
-      .elementos__listTask {
-        margin-top: 0.3rem;
-      }
-    }
+    background-color: rgb(140, 220, 230);
 
     .product-planning__title {
       @extend .align-items-center;
@@ -124,7 +116,7 @@
     @extend .space-around;
     flex-grow: 1;
     padding: 2rem 2rem 0px 2rem;
-
+    background-color: rgb(110, 233, 233);
     .product-design__title {
       @extend .align-items-center;
       @extend .flex;
