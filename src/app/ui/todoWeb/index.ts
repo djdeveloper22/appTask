@@ -1,19 +1,20 @@
-import { valueProject } from './../../core/constants/valueProject.enum';
 import { FunctionElementWeb } from '../../core/utils/FunctionElementWeb';
 import { TaskManagerAppWeb } from './../../core/services/TaskManagerAppWeb';
 import { Events } from './../../core/utils/Events';
 import { UtilsComponents } from './../../core/utils/UtilsComponent';
 import { IWebAplication } from './../../domain/contract/IWebAplication';
-
+import { FormElements } from '../../core/constants/FormElements';
 export class myWebApp implements IWebAplication {
   private componenteWeb: UtilsComponents;
   private ev: Events;
   private task: TaskManagerAppWeb;
+  private elementsForm: FormElements;
 
-  constructor(componenteWeb: UtilsComponents, ev: Events, task: TaskManagerAppWeb) {
+  constructor(componenteWeb: UtilsComponents, ev: Events, task: TaskManagerAppWeb, elementsForm: FormElements) {
     this.componenteWeb = componenteWeb;
     this.ev = ev;
     this.task = task;
+    this.elementsForm = elementsForm;
   }
 
   startInitApp(): void {
@@ -27,11 +28,7 @@ export class myWebApp implements IWebAplication {
 
   showModal(): void {
     this.ev.click('#showModal', () => {
-      const root = document.querySelector('#root');
-      const modal = document.createElement('div');
-      modal.className = 'modal';
-      modal.id = 'myModal';
-      root.appendChild(modal);
+      this.elementsForm.elementRoot().appendChild(this.elementsForm.elementModal());
       setTimeout(() => this.componenteWeb.setComponent('myModal', 'modalTask'), 100);
       setTimeout(() => {
         this.saveTask();
@@ -39,7 +36,7 @@ export class myWebApp implements IWebAplication {
       },
         1000);
 
-      modal.style.marginLeft = '0%';
+      this.elementsForm.elementModal().style.marginLeft = '0%';
     });
   }
 
@@ -55,60 +52,34 @@ export class myWebApp implements IWebAplication {
   }
 
   saveTask(): void {
+
     this.ev.click('#btnSave', () => {
-      let acumulador: number = 0;
-      const moduloTarea: HTMLFormElement = document.querySelector('#moduloTarea');
-      const typeProject: HTMLFormElement = document.querySelector('#inputProject');
-      const inputOptionPrioridad: HTMLFormElement = document.querySelector('#inputOptionPrioridad');
-      const inputEstadoTask: HTMLFormElement = document.querySelector('#inputEstadoTask');
-      const formulario: HTMLFormElement = document.querySelector('#formulario');
-      let contador = document.querySelector('#contadorTareas');
-      const contTaskProject = document.querySelector('#contTaskProject');
-      let contTask: number = 1;
-      const contTaskDesign = document.querySelector('#contTaskDesign');
-      let contDesign: number = 1;
-      const contTaskOtros = document.querySelector('#contTaskOtros');
-      let contOtros: number = 1;
-      const msjTask: HTMLElement = document.querySelector('#msjTarea');
-      const title: HTMLElement = document.querySelector('.title');
       const elementWeb = new FunctionElementWeb();
-      //title.style.display = 'none';
       let taskIsSave = this.task.create({
-        nameTask: moduloTarea.value,
-        typeProjetc: typeProject.value,
-        priorityTask: inputOptionPrioridad.value,
-        stateTask: inputEstadoTask.value,
-        createDate: new Date(),
+        nameTask:     this.elementsForm.elementModuloTarea().value,
+        typeProjetc:  this.elementsForm.elementTypeProject().value,
+        priorityTask: this.elementsForm.elementInputOptionPrioridad().value,
+        stateTask:    this.elementsForm.elementInputEstadoTask().value,
+        createDate:   new Date(),
       });
 
       if (taskIsSave) {
-        contador.innerHTML = `${this.task.read().length}`
-        this.task.read().some(el=>{
-          if(el.typeProjetc === valueProject.project1)
-            contTaskProject.innerHTML = `${contTask++}`;
-          else if(el.typeProjetc === valueProject.project2)
-            contTaskDesign.innerHTML = `${contDesign++}`;
-          else
-          contTaskOtros.innerHTML = `${contOtros++}`;
-          elementWeb.isTypeProjects(el.typeProjetc, typeProject.value, contTaskProject, contTask);
-        });
+        let acu: number = 0;
+        this.elementsForm.eLementContador().innerHTML = `${this.task.read().length}`;
+        acu = this.elementsForm.acumulador() + this.task.read().length;
 
-        acumulador = acumulador + this.task.read().length;
-        msjTask.style.top = '1rem';
-        msjTask.style.transition = 'all 0.3s ease-in';
         setTimeout(() => {
-          msjTask.style.top = '-7rem';
-          this.showTask(acumulador, formulario);
-        }, 1500);
+          this.elementsForm.elementMsjTask().style.top = '-7rem';
+          this.showTask(acu);
+        }, 500);
       }
+      
+      elementWeb.cleanForm(this.elementsForm.elementFormulario());
     });
   }
 
-  showTask(contador: number, formulario: HTMLFormElement): void {
+  showTask(contador: number): void {
     const elementWeb = new FunctionElementWeb();
-    const container__listTask: HTMLElement = document.querySelector('.listTask');
-    let elementos = this.task.read();
-    elementWeb.insertListTask(contador, elementos, container__listTask);
-    elementWeb.cleanForm(formulario);
+    elementWeb.insertListTask(contador, this.task.read(), this.elementsForm.container__listTask());
   }
 }

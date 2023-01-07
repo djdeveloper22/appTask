@@ -3,6 +3,7 @@ import { myWebApp } from './ui/todoWeb/index';
 import { IWebAplication } from "./domain/contract/IWebAplication";
 import { UtilsComponents } from './core/utils/UtilsComponent';
 import { Events } from './core/utils/Events';
+import { FormElements } from './core/constants/FormElements';
 
 class Aplications {
 
@@ -20,7 +21,12 @@ class Aplications {
 }
 
 const app = new Aplications(
-  new myWebApp(new UtilsComponents, new Events, new TaskManagerAppWeb)
+  new myWebApp(
+    new UtilsComponents,
+    new Events,
+    new TaskManagerAppWeb,
+    new FormElements
+  )
 );
 
 export default app;
