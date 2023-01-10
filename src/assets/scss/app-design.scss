@@ -99,7 +99,45 @@
     @extend .space-around;
     flex-grow: 1;
     padding: 2rem 2rem 0px 2rem;
-    background-color: rgb(140, 220, 230);
+
+    .containerListTask{
+      display: flex;
+      height: 40vh;
+
+      & > div{
+        flex-grow: 1;
+        overflow: auto;
+        display: none;
+        transition: all 5s ease-in;
+      }
+
+      .listTask{
+        //background-color: #3B83BD;
+
+        .elementos__listTask{
+          background-color: $bgSColorIcons;
+          color: black;
+          font-size: 20px;
+          padding: 1rem;
+          &:nth-child(2n + 1){
+            background-color: $bgColorLogoCielo;
+            color: white;
+          }
+        }
+      }
+
+      .lisTaskProjects{
+        background-color: #646B63;
+      }
+
+      .lisTaskDesign{
+        background-color: #20603D;
+      }
+
+      .lisTaskOtros{
+        background-color: #955F20;
+      }
+    }
 
     .product-planning__title {
       @extend .align-items-center;

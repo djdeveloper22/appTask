@@ -4,6 +4,8 @@ import { Events } from './../../core/utils/Events';
 import { UtilsComponents } from './../../core/utils/UtilsComponent';
 import { IWebAplication } from './../../domain/contract/IWebAplication';
 import { FormElements } from '../../core/constants/FormElements';
+import { propDisplay } from '../../core/utils/styleDisplay.enum';
+
 export class myWebApp implements IWebAplication {
   private componenteWeb: UtilsComponents;
   private ev: Events;
@@ -24,6 +26,7 @@ export class myWebApp implements IWebAplication {
         this.componenteWeb.setComponent('app_design', 'sectionAppDesign')
     }, 100);
     setTimeout(() => this.showModal(), 500);
+    
   }
 
   showModal(): void {
@@ -52,7 +55,6 @@ export class myWebApp implements IWebAplication {
   }
 
   saveTask(): void {
-
     this.ev.click('#btnSave', () => {
       const elementWeb = new FunctionElementWeb();
       let taskIsSave = this.task.create({
@@ -64,17 +66,16 @@ export class myWebApp implements IWebAplication {
       });
 
       if (taskIsSave) {
-        let acu: number = 0;
         this.elementsForm.eLementContador().innerHTML = `${this.task.read().length}`;
-        acu = this.elementsForm.acumulador() + this.task.read().length;
-
+        
         setTimeout(() => {
           this.elementsForm.elementMsjTask().style.top = '-7rem';
-          this.showTask(acu);
+          this.showTask(this.elementsForm.acumulador() + this.task.read().length);
         }, 500);
       }
       
       elementWeb.cleanForm(this.elementsForm.elementFormulario());
+      this.contentTask();
     });
   }
 
@@ -82,4 +83,42 @@ export class myWebApp implements IWebAplication {
     const elementWeb = new FunctionElementWeb();
     elementWeb.insertListTask(contador, this.task.read(), this.elementsForm.container__listTask());
   }
+
+  contentTask(): void{
+    console.log('llamando la tarea');
+
+    const listTask: HTMLElement = document.querySelector('.listTask');
+    const lisTaskProjects: HTMLElement = document.querySelector('.lisTaskProjects');
+    const lisTaskDesign: HTMLElement = document.querySelector('.lisTaskDesign');
+    const lisTaskOtros: HTMLElement = document.querySelector('.lisTaskOtros');
+
+    this.ev.click('#design__ul__li_Todo', ()=> {
+      listTask.style.display = propDisplay.displayBlock;
+      lisTaskProjects.style.display= propDisplay.displayNone;
+      lisTaskDesign.style.display= propDisplay.displayNone;
+      lisTaskOtros.style.display= propDisplay.displayNone;
+    })
+
+    this.ev.click('#design__ul__li_Projects', ()=> {
+      listTask.style.display = propDisplay.displayNone;
+      lisTaskProjects.style.display= propDisplay.displayBlock;
+      lisTaskDesign.style.display= propDisplay.displayNone;
+      lisTaskOtros.style.display= propDisplay.displayNone;
+    })
+
+    this.ev.click('#design__ul__li_Design', ()=> {
+      listTask.style.display = propDisplay.displayNone;
+      lisTaskProjects.style.display= propDisplay.displayNone;
+      lisTaskDesign.style.display= propDisplay.displayBlock;
+      lisTaskOtros.style.display= propDisplay.displayNone;
+    })
+
+    this.ev.click('#design__ul__li_Otros', ()=> {
+      listTask.style.display = propDisplay.displayNone;
+      lisTaskProjects.style.display= propDisplay.displayNone;
+      lisTaskDesign.style.display= propDisplay.displayNone;
+      lisTaskOtros.style.display= propDisplay.displayBlock;
+    })
+  }
+
 }

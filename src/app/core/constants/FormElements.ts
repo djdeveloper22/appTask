@@ -1,6 +1,7 @@
 import { IFormElements } from './../../domain/contract/IFormElements';
 
 export class FormElements implements IFormElements {
+
   elementModal(): HTMLElement {
     const elementModal: HTMLElement = document.createElement('div');
     elementModal.className = 'modal';
