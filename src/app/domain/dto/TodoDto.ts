@@ -1,6 +1,6 @@
 export interface TodoDto{
   nameTask: string;
-  typeProjetc: string;
+  typeProject: string;
   priorityTask: string;
   createDate: Date;
   stateTask: string;

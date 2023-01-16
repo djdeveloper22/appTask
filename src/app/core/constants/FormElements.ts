@@ -1,6 +1,24 @@
 import { IFormElements } from './../../domain/contract/IFormElements';
 
 export class FormElements implements IFormElements {
+  elementLisTaskProjects(): HTMLElement{
+    let lisTaskProjects: HTMLElement = document.querySelector('.lisTaskProjects');
+    return lisTaskProjects;
+  }
+
+  elementListaDesign(): HTMLElement{
+    let lisTaskDesign: HTMLElement = document.querySelector('.lisTaskDesign');
+    return lisTaskDesign;
+
+  }
+  elementLisTaskOtros(): HTMLElement{
+    let lisTaskOtros: HTMLElement = document.querySelector('.lisTaskOtros');
+    return lisTaskOtros;
+  }
+
+  eLementContador(): HTMLFormElement {
+    throw new Error('Method not implemented.');
+  }
 
   elementModal(): HTMLElement {
     const elementModal: HTMLElement = document.createElement('div');
@@ -19,24 +37,6 @@ export class FormElements implements IFormElements {
     return container__listTask;
   }
 
-  /**
-   * contTask(): number {
-    let contTask = 1;
-    return contTask;
-  }
-
-  contDesign(): number {
-    let contDesign = 1;
-    return contDesign;
-  }
-
-  contOtros(): number {
-    let contOtros = 1;
-    return contOtros;
-  }
-   * 
-   */
-  
   acumulador(): number {
     let acumulador = 0;
     return acumulador;
@@ -77,9 +77,9 @@ export class FormElements implements IFormElements {
     return elementoInputOptionPrioridad;
   }
   
-  eLementContador(): HTMLFormElement {
-    let contador: HTMLFormElement = document.querySelector('#contadorTareas');
-    return contador;
+  elementInputProject(): HTMLFormElement{
+    let elementInputProject: HTMLFormElement = document.querySelector('#inputProject');
+    return elementInputProject;
   }
 
   elementModuloTarea(): HTMLFormElement {
@@ -91,4 +91,24 @@ export class FormElements implements IFormElements {
     let elementoTypeProject: HTMLFormElement = document.querySelector('#msjTarea');
     return elementoTypeProject;
   }  
+
+  elementContador(): HTMLFormElement {
+    let contador: HTMLFormElement = document.querySelector('#contadorTareas');
+    return contador;
+  }
+
+  elementContTask(): HTMLFormElement {
+    let contTask: HTMLFormElement = document.querySelector('#contTaskProject') ;
+    return contTask;
+  }
+
+  elementContDesign(): HTMLFormElement {
+    let contDesign: HTMLFormElement = document.querySelector('#contTaskDesign');
+    return contDesign;
+  }
+
+  elementContOtros(): HTMLFormElement {
+    let contOtros: HTMLFormElement = document.querySelector('#contTaskOtros');
+    return contOtros;
+  }
 }

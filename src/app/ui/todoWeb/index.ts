@@ -26,7 +26,6 @@ export class myWebApp implements IWebAplication {
         this.componenteWeb.setComponent('app_design', 'sectionAppDesign')
     }, 100);
     setTimeout(() => this.showModal(), 500);
-    
   }
 
   showModal(): void {
@@ -38,14 +37,13 @@ export class myWebApp implements IWebAplication {
         this.close();
       },
         1000);
-
       this.elementsForm.elementModal().style.marginLeft = '0%';
     });
   }
 
   close(): void {
     const modal: HTMLElement = document.querySelector('#myModal');
-    this.ev.click('#closeModal', () => {
+    this.ev.click('#myModal', () => {
       setTimeout(() => {
         modal.style.marginLeft = '-100%';
         modal.style.transition = 'all 0.5s ease-in'
@@ -59,15 +57,17 @@ export class myWebApp implements IWebAplication {
       const elementWeb = new FunctionElementWeb();
       let taskIsSave = this.task.create({
         nameTask:     this.elementsForm.elementModuloTarea().value,
-        typeProjetc:  this.elementsForm.elementTypeProject().value,
+        typeProject:  this.elementsForm.elementInputProject().value,
         priorityTask: this.elementsForm.elementInputOptionPrioridad().value,
         stateTask:    this.elementsForm.elementInputEstadoTask().value,
         createDate:   new Date(),
       });
-
+      //FormData que es?
       if (taskIsSave) {
-        this.elementsForm.eLementContador().innerHTML = `${this.task.read().length}`;
+        this.elementsForm.elementContador().innerHTML = `${this.task.read().length}`;
         
+        elementWeb.elementIncludeArray(this.task.read());
+
         setTimeout(() => {
           this.elementsForm.elementMsjTask().style.top = '-7rem';
           this.showTask(this.elementsForm.acumulador() + this.task.read().length);
@@ -85,40 +85,32 @@ export class myWebApp implements IWebAplication {
   }
 
   contentTask(): void{
-    console.log('llamando la tarea');
-
-    const listTask: HTMLElement = document.querySelector('.listTask');
-    const lisTaskProjects: HTMLElement = document.querySelector('.lisTaskProjects');
-    const lisTaskDesign: HTMLElement = document.querySelector('.lisTaskDesign');
-    const lisTaskOtros: HTMLElement = document.querySelector('.lisTaskOtros');
-
     this.ev.click('#design__ul__li_Todo', ()=> {
-      listTask.style.display = propDisplay.displayBlock;
-      lisTaskProjects.style.display= propDisplay.displayNone;
-      lisTaskDesign.style.display= propDisplay.displayNone;
-      lisTaskOtros.style.display= propDisplay.displayNone;
+      this.elementsForm.container__listTask().style.display    = propDisplay.displayBlock;
+      this.elementsForm.elementLisTaskProjects().style.display = propDisplay.displayNone;
+      this.elementsForm.elementListaDesign().style.display     = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskOtros().style.display    = propDisplay.displayNone;
     })
 
     this.ev.click('#design__ul__li_Projects', ()=> {
-      listTask.style.display = propDisplay.displayNone;
-      lisTaskProjects.style.display= propDisplay.displayBlock;
-      lisTaskDesign.style.display= propDisplay.displayNone;
-      lisTaskOtros.style.display= propDisplay.displayNone;
+      this.elementsForm.container__listTask().style.display    = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskProjects().style.display = propDisplay.displayBlock;
+      this.elementsForm.elementListaDesign().style.display     = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskOtros().style.display    = propDisplay.displayNone;
     })
 
     this.ev.click('#design__ul__li_Design', ()=> {
-      listTask.style.display = propDisplay.displayNone;
-      lisTaskProjects.style.display= propDisplay.displayNone;
-      lisTaskDesign.style.display= propDisplay.displayBlock;
-      lisTaskOtros.style.display= propDisplay.displayNone;
+      this.elementsForm.container__listTask().style.display    = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskProjects().style.display = propDisplay.displayNone;
+      this.elementsForm.elementListaDesign().style.display     = propDisplay.displayBlock;
+      this.elementsForm.elementLisTaskOtros().style.display    = propDisplay.displayNone;
     })
 
     this.ev.click('#design__ul__li_Otros', ()=> {
-      listTask.style.display = propDisplay.displayNone;
-      lisTaskProjects.style.display= propDisplay.displayNone;
-      lisTaskDesign.style.display= propDisplay.displayNone;
-      lisTaskOtros.style.display= propDisplay.displayBlock;
+      this.elementsForm.container__listTask().style.display    = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskProjects().style.display = propDisplay.displayNone;
+      this.elementsForm.elementListaDesign().style.display     = propDisplay.displayNone;
+      this.elementsForm.elementLisTaskOtros().style.display    = propDisplay.displayBlock;
     })
   }
-
 }

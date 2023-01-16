@@ -112,30 +112,33 @@
       }
 
       .listTask{
-        //background-color: #3B83BD;
-
         .elementos__listTask{
           background-color: $bgSColorIcons;
           color: black;
           font-size: 20px;
           padding: 1rem;
+          width: 100%;
           &:nth-child(2n + 1){
             background-color: $bgColorLogoCielo;
             color: white;
           }
         }
-      }
+        
+        .elements__listTask{
+          background-color: #0bc60b87;
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem;
 
-      .lisTaskProjects{
-        background-color: #646B63;
-      }
+          &:nth-child(2n + 1){
+            background-color: #D87B86;
+            color: white;
+          }
 
-      .lisTaskDesign{
-        background-color: #20603D;
-      }
-
-      .lisTaskOtros{
-        background-color: #955F20;
+          & > div{
+            flex: 1;
+          }
+        }
       }
     }
 
