@@ -43,7 +43,7 @@ export class myWebApp implements IWebAplication {
 
   close(): void {
     const modal: HTMLElement = document.querySelector('#myModal');
-    this.ev.click('#myModal', () => {
+    this.ev.click('#closeModal', () => {
       setTimeout(() => {
         modal.style.marginLeft = '-100%';
         modal.style.transition = 'all 0.5s ease-in'

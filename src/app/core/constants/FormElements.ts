@@ -1,6 +1,4 @@
-import { IFormElements } from './../../domain/contract/IFormElements';
-
-export class FormElements implements IFormElements {
+export class FormElements{
   elementLisTaskProjects(): HTMLElement{
     let lisTaskProjects: HTMLElement = document.querySelector('.lisTaskProjects');
     return lisTaskProjects;
@@ -11,6 +9,7 @@ export class FormElements implements IFormElements {
     return lisTaskDesign;
 
   }
+  
   elementLisTaskOtros(): HTMLElement{
     let lisTaskOtros: HTMLElement = document.querySelector('.lisTaskOtros');
     return lisTaskOtros;
