@@ -11,12 +11,14 @@ export class myWebApp implements IWebAplication {
   private ev: Events;
   private task: TaskManagerAppWeb;
   private elementsForm: FormElements;
+  private element: FunctionElementWeb;
 
-  constructor(componenteWeb: UtilsComponents, ev: Events, task: TaskManagerAppWeb, elementsForm: FormElements) {
+  constructor(componenteWeb: UtilsComponents, ev: Events, task: TaskManagerAppWeb, elementsForm: FormElements, element: FunctionElementWeb) {
     this.componenteWeb = componenteWeb;
     this.ev = ev;
     this.task = task;
     this.elementsForm = elementsForm;
+    this.element = element;
   }
 
   startInitApp(): void {
@@ -54,7 +56,6 @@ export class myWebApp implements IWebAplication {
 
   saveTask(): void {
     this.ev.click('#btnSave', () => {
-      const elementWeb = new FunctionElementWeb();
       let taskIsSave = this.task.create({
         nameTask:     this.elementsForm.elementModuloTarea().value,
         typeProject:  this.elementsForm.elementInputProject().value,
@@ -66,7 +67,7 @@ export class myWebApp implements IWebAplication {
       if (taskIsSave) {
         this.elementsForm.elementContador().innerHTML = `${this.task.read().length}`;
         
-        elementWeb.elementIncludeArray(this.task.read());
+        this.element.elementIncludeArray(this.task.read());
 
         setTimeout(() => {
           this.elementsForm.elementMsjTask().style.top = '-7rem';
@@ -74,14 +75,14 @@ export class myWebApp implements IWebAplication {
         }, 500);
       }
       
-      elementWeb.cleanForm(this.elementsForm.elementFormulario());
+      this.element.cleanForm(this.elementsForm.elementFormulario());
       this.contentTask();
     });
   }
 
   showTask(contador: number): void {
-    const elementWeb = new FunctionElementWeb();
-    elementWeb.insertListTask(contador, this.task.read(), this.elementsForm.container__listTask());
+    
+    this.element.insertListTask(contador, this.task.read(), this.elementsForm.container__listTask());
   }
 
   contentTask(): void{
